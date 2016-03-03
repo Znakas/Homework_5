@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Homework 5</string>
+    <string name="name">Кому:</string>
+    <string name="topic">Тема:</string>
+    <string name="message_text">Текст повідомлення</string>
+    <string name="call">Зателефонувати</string>
+    <string name="send">Відправити</string>
+</resources>
