@@ -60,6 +60,7 @@ public class MainActivity extends Activity {
                     callIntent = new Intent(Intent.ACTION_CALL);
                     callIntent.setData(uri);
                     if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        Toast.makeText(this,"Oooops", Toast.LENGTH_SHORT).show();
                     }
                     startActivity(callIntent);
                     break;
