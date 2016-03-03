@@ -40,26 +40,21 @@ public class MainActivity extends Activity {
 
         switch (v.getId()) {
             case R.id.button_send:
-                if (mail_name.equals("")&&mail_subject.equals("")&&mail_text.equals("")){
-                    Toast.makeText(MainActivity.this, Constants.CORRECT_EMAIL, Toast.LENGTH_SHORT).show();
+                if (!mail_name.isEmpty()&&!mail_subject.isEmpty()&&!mail_text.isEmpty()){
                     if (isCorrectEmail(mail_name)) {
+                        Toast.makeText(MainActivity.this, Constants.CHOOSE_APP, Toast.LENGTH_SHORT).show();
                         Intent sendIntent = new Intent(Intent.ACTION_SEND);
                         sendIntent.putExtra(Intent.EXTRA_EMAIL, mail_name);
                         sendIntent.putExtra(Intent.EXTRA_SUBJECT, mail_subject);
                         sendIntent.putExtra(Intent.EXTRA_TEXT, mail_text);
                         sendIntent.setType("message/rfc822");
                         startActivity(Intent.createChooser(sendIntent, Constants.CHOOSE_APP));
-                } else  {
-                    Toast.makeText(MainActivity.this, Constants.INCORRECT_EMAIL, Toast.LENGTH_SHORT).show();
-                    edit_text_name.setText("");
                     }
-                } else { Toast.makeText(MainActivity.this, Constants.FILL_EMPTY_FIELDS, Toast.LENGTH_SHORT).show();
-                    edit_text_name.setText("");
+                        } else { Toast.makeText(MainActivity.this, Constants.FILL_EMPTY_FIELDS, Toast.LENGTH_SHORT).show();
                 }
                 break;
 
             case R.id.button_call:
-
                     Intent callIntent = new Intent();
                     Uri uri = Uri.parse(Constants.TEL_TO_CALL);
                     callIntent = new Intent(Intent.ACTION_CALL);
